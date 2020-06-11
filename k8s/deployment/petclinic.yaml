@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    run: petclinic
+  name: petclinic
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: petclinic
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        run: petclinic
+    spec:
+      containers:
+      - image: marygabry1508/petclinic
+        name: petclinic
+        ports:
+        - containerPort: 8080

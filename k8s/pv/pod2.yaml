@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-2g
+spec:
+  containers:
+  - name: test-container
+    image: busybox
+    command: ['sh', '-c', 'echo Hello Kubernetes! && sleep 3600000']
+    volumeMounts:
+    - name: test-volume
+      mountPath: /mountpath-2
+  volumes:
+  - name: test-volume
+    persistentVolumeClaim:
+      claimName: pvc-1g
